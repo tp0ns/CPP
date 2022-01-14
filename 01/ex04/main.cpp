@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 12:43:59 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/14 12:44:05 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/14 12:54:36 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int	sed_for_losers(char **av)
 	std::string			temp;
 	
 	if (filename.empty() || s1.empty() || s2.empty())
+	{
 		std::cout<< "One of your argument is invalid" <<std::endl;
-	if (inputfile.is_open())
+		return (0);
+	}
+	if (inputfile.is_open() && outputfile.is_open())
 	{
 		temp_stream << inputfile.rdbuf();
 		temp = temp_stream.str();
@@ -33,11 +36,11 @@ int	sed_for_losers(char **av)
 		inputfile.close();
 	}
 	else 
-		std::cout<< "Unable to open input file" <<std::endl;
-	if (outputfile.is_open())
-		outputfile << temp;
-	else
-		std::cout<< "Unable to open output file" <<std::endl;
+	{
+		std::cout<< "Unable to open one of the necessary file" <<std::endl;
+		return (0);
+	}
+	outputfile << temp;
 	return (1);
 }
 
