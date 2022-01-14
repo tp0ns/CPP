@@ -6,10 +6,11 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 02:03:44 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/12 10:01:08 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/13 18:28:35 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 # include <iostream>

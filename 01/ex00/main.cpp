@@ -5,38 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 03:41:27 by tpons             #+#    #+#             */
-/*   Updated: 2021/05/31 04:26:40 by tpons            ###   ########.fr       */
+/*   Created: 2022/01/13 18:31:20 by tpons             #+#    #+#             */
+/*   Updated: 2022/01/14 10:20:46 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
-#include <iostream>
+#include "Zombie.hpp"
 
-void	ponyOnTheStack()
-{
-	Pony	Peanut("Peanut", "Brown", "Little");
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
-	std::cout<< "His name is " << Peanut.get_name() << "." <<std::endl;
-	std::cout<< "He's " << Peanut.get_color() << " !" <<std::endl;
+int	main(void) {
+	Zombie* zombie;
 
-	return ;
-}
-
-void	ponyOnTheHeap()
-{
-	Pony	*Daisy = new Pony("Daisy", "White", "Huge");
-
-	std::cout<< "Her name is " << Daisy->get_name() << "." <<std::endl;
-	std::cout<< "She's " << Daisy->get_color() << " !" <<std::endl;
-
-	delete Daisy;
-	return ;
-}
-
-int		main(void)
-{
-	ponyOnTheStack();
-	ponyOnTheHeap();
+	zombie = newZombie("Louis");
+	randomChump("Romain");
+	delete(zombie);
 	return (0);
 }

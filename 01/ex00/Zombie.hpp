@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 04:01:53 by tpons             #+#    #+#             */
-/*   Updated: 2021/06/01 05:28:15 by tpons            ###   ########.fr       */
+/*   Created: 2022/01/13 18:29:33 by tpons             #+#    #+#             */
+/*   Updated: 2022/01/14 10:19:11 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#pragma once
+#ifndef ZOMBIE_CLASS_H
+# define ZOMBIE_CLASS_H
+# include <iostream>
+# include <iomanip>
 
-Human::Human(){
-	return ;
-}
+class	Zombie{
+private :
+	std::string	_name;
+public :
+	Zombie( void );
+	~Zombie( void );
 
-Human::~Human(){
-	return ;
-}
+	void	announce( void ) const;
+	void	setName( std::string name );		
+};
 
-std::string	Human::identify(void) const
-{
-	return (this->_brain.identify());
-}
-
-Brain const &Human::getBrain(void) const{
-	Brain const &brain_ref = this->_brain;
-	return (brain_ref);
-}
+#endif

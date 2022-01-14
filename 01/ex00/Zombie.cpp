@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 04:02:05 by tpons             #+#    #+#             */
-/*   Updated: 2021/06/01 05:27:59 by tpons            ###   ########.fr       */
+/*   Created: 2022/01/13 18:30:23 by tpons             #+#    #+#             */
+/*   Updated: 2022/01/13 18:50:16 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-# define HUMAN_H
-# include "Brain.hpp"
-# include <iostream>
+#include "Zombie.hpp"
 
-class	Human{
-private :
-	Brain const _brain;
-public :
-	Human();
-	~Human();
+Zombie::Zombie( void ){
+	return ;
+}
 
-	std::string	identify(void) const;
+Zombie::~Zombie( void ){
+	std::cout<< this->_name << " is dead ... again ! " << std::endl;
+	return ; 
+}
 
-	Brain const	&getBrain(void) const;
-};
+void	Zombie::announce( void ) const
+{
+	std::cout<<"<"<< this->_name <<">"<< " BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
+}
 
-#endif
+void	Zombie::setName( std::string name )
+{
+	this->_name = name;
+	return ;
+}
