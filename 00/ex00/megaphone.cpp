@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 03:35:45 by tpons             #+#    #+#             */
-/*   Updated: 2021/05/27 03:45:13 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/20 11:55:22 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int ac, char** av)
 		while (av[i][j])
 			std::cout<<(char)toupper(av[i][j++]);
 		i++;
+		std::cout<< " ";
 	}
 	std::cout<<std::endl;
 	return (0);
