@@ -1,6 +1,6 @@
 # Generated with GenMake
 # Arthur-TRT - https://github.com/arthur-trt/genMake
-# genmake v1.1.1
+# genmake v1.1.3
 
 #Compiler and Linker
 CC					:= clang
@@ -11,8 +11,8 @@ ifeq ($(shell uname -s),Darwin)
 endif
 
 #The Target Binary Program
-TARGET				:= acc
-TARGET_BONUS		:= acc-bonus
+TARGET				:= a.out
+TARGET_BONUS		:= a.out-bonus
 
 BUILD				:= release
 
@@ -67,7 +67,6 @@ all: $(TARGETDIR)/$(TARGET)
 	@$(ECHO) "$(C_SUCCESS)All done, compilation successful! 👌 $(C_RESET)"
 
 # Bonus rule
-bonus: CFLAGS += -DBONUS
 bonus: CPPFLAGS += -DBONUS
 bonus: $(TARGETDIR)/$(TARGET_BONUS)
 	@$(ERASE)
@@ -108,8 +107,8 @@ $(BUILDIR):
 $(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(dir $@)
 	@$(ECHO) "$(TARGET)\t\t[$(C_PENDING)⏳$(C_RESET)]"
-	$(CXX) $(CFLAGS) $(CPPFLAGS) $(INC) -c -o $@ $<
-	@$(CXX) $(CFLAGS) $(CPPFLAGS) $(INCDEP) -MM $(SRCDIR)/$*.$(SRCEXT) > $(BUILDDIR)/$*.$(DEPEXT)
+	$(CXX) $(CPPFLAGS) $(INC) -c -o $@ $<
+	@$(CXX) $(CPPFLAGS) $(INCDEP) -MM $(SRCDIR)/$*.$(SRCEXT) > $(BUILDDIR)/$*.$(DEPEXT)
 	@$(ERASE)
 	@$(ERASE)
 	@cp -f $(BUILDDIR)/$*.$(DEPEXT) $(BUILDDIR)/$*.$(DEPEXT).tmp

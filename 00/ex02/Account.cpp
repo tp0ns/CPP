@@ -6,13 +6,12 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 13:42:48 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/13 15:49:02 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/20 13:30:25 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
-
 #include "Account.hpp"
 
 int Account::_nbAccounts = 0;
@@ -39,21 +38,23 @@ Account::~Account( void ) {
 				<< ";closed" << std::endl;
 }
 
-void	Account::_displayTimestamp( void ) {
-	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
-	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+void Account::_displayTimestamp ( void )
+{
+	time_t timer;
+	
+	timer = time(NULL);
+	tm *time_now = localtime(&timer);
 
-	tm utc_tm = *localtime(&time_now);
-	std::cout   << std::setfill('0')
-				<< "[" 
-				<< (utc_tm.tm_year + 1900)
-				<< std::setw(2) << utc_tm.tm_mon
-				<< std::setw(2) << utc_tm.tm_mday
+	std::cout 	<< std::setfill('0')
+				<< "["
+				<< (1900 + time_now->tm_year)
+				<< std::setw(2) << (time_now->tm_mon + 1) 
+				<< std::setw(2) << time_now->tm_mday
 				<< "_"
-				<< std::setw(2) << utc_tm.tm_hour
-				<< std::setw(2) << utc_tm.tm_min
-				<< std::setw(2) << utc_tm.tm_sec
-				<< "] ";
+				<< std::setw(2) << time_now->tm_hour
+				<< std::setw(2) << time_now->tm_min
+				<< std::setw(2) << time_now->tm_sec
+				<< "]";
 }
 
 void	Account::displayAccountsInfos( void ) {

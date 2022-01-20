@@ -3,7 +3,7 @@
 ## . ##
 
 SOURCES		+=           		\
-		tests.cpp           	\
 		Account.cpp         	\
+		tests.cpp           	\
 
 
