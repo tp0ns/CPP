@@ -6,11 +6,12 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:11:07 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/12 10:06:25 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/20 12:27:17 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.class.hpp"
+#include <cstdlib>
 
 std::string resize_info(std::string str)
 {
@@ -52,7 +53,7 @@ void	search_command(int number, Contact *crappy)
 			std::cout<< "What index should I display to you ?" <<std::endl;
 			std::getline(std::cin, str_input);
 			search_input = atoi(str_input.c_str());
-			if ( search_input > 0 && search_input < (number + 2))
+			if ( search_input > 0 && search_input < number + 1)
 				break ;
 			else
 				std::cout<< "Oupsie Daisy it seems you didn't understand my request, please type a valid index to display !" <<std::endl;
