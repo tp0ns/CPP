@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 13:42:48 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/20 13:30:25 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/20 14:22:55 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void Account::_displayTimestamp ( void )
 				<< std::setw(2) << time_now->tm_hour
 				<< std::setw(2) << time_now->tm_min
 				<< std::setw(2) << time_now->tm_sec
-				<< "]";
+				<< "] ";
 }
 
 void	Account::displayAccountsInfos( void ) {
