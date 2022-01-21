@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 12:43:59 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/14 12:54:36 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/21 14:40:15 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,32 @@
 #include <fstream>
 #include <sstream>
 
+std::string	ft_replace(std::string temp, size_t pos, size_t len, std::string s2)
+{
+	temp.erase(pos, len);
+	temp.insert(pos, s2);
+	return (temp);
+}
+
 int	sed_for_losers(char **av)
 {
 	std::string 		filename = av[1], s1 = av[2], s2 = av[3];
 	std::ifstream		inputfile(filename);
-	std::ofstream		outputfile(filename + ".replace");
 	std::stringstream	temp_stream;
 	std::string			temp;
 	
-	if (filename.empty() || s1.empty() || s2.empty())
+	if (filename.empty() || s1.empty())
 	{
 		std::cout<< "One of your argument is invalid" <<std::endl;
 		return (0);
 	}
+	std::ofstream		outputfile(filename + ".replace");
 	if (inputfile.is_open() && outputfile.is_open())
 	{
 		temp_stream << inputfile.rdbuf();
 		temp = temp_stream.str();
 		while (temp.find(s1) != temp.npos)
-			temp.replace(temp.find(s1), s1.length(), s2);
+			temp = ft_replace(temp, temp.find(s1), s1.length(), s2);
 		inputfile.close();
 	}
 	else 
