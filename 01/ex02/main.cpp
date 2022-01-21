@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 10:53:10 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/14 11:13:56 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/21 13:05:02 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main( void ) {
 	std::cout<< "Using stringPTR: " << stringPTR <<std::endl;
 	std::cout<< "Using stringREF: " << &stringREF <<std::endl;
 	std::cout<<std::endl;
+	std::cout<< "Using string   : " << string << std::endl;
 	std::cout<< "Using stringPTR: " << *stringPTR <<std::endl;
 	std::cout<< "Using stringREF: " << stringREF <<std::endl;
 	
