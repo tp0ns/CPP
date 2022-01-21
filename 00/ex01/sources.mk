@@ -2,8 +2,9 @@
 
 ## . ##
 
-SOURCES		+=              		\
-		crappy.cpp             	\
-		contact.class.cpp      	\
+SOURCES		+=           		\
+		Contact.cpp         	\
+		Phonebook.cpp       	\
+		main.cpp            	\
 
 

@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.cpp                                  :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 02:07:41 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/12 10:12:51 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/21 12:03:31 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.class.hpp"
+#include "Contact.hpp"
 
-Contact::Contact(void) //Constructor
-{
-	// std::cout<< "Constructor called" <<std::endl;
+Contact::Contact(void) {
 	return ;
 }
 
-Contact::~Contact(void) //Destructor
-{
-	// std::cout<< "Destrcuctor called" <<std::endl;
+Contact::~Contact(void) {
 	return ;
 }
 
@@ -38,7 +34,7 @@ std::string	contact_input(const char *str)
 	return (input);
 }
 
-void		Contact::add_contact(void)
+void		Contact::set_infos(void)
 {
 	this->_first_name = contact_input("First name : ");
 	this->_last_name = contact_input("Last name : ");

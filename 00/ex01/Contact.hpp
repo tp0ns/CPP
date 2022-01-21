@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.hpp                                  :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 02:03:44 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/13 18:28:35 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/21 12:02:09 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public :
 	std::string	get_number()		const;
 	std::string	get_secret()		const;
 	void 		display()			const;
-	void 		add_contact();
+	void 		set_infos();
 };
 
 #endif
