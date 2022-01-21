@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 18:30:23 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/13 18:50:16 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/21 12:37:04 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Zombie::~Zombie( void ){
 
 void	Zombie::announce( void ) const
 {
-	std::cout<<"<"<< this->_name <<">"<< " BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout<< this->_name << ":" << " BraiiiiiiinnnzzzZ..." << std::endl;
 	return ;
 }
 
