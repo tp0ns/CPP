@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 12:43:59 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/25 11:55:16 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/25 15:52:04 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <sstream>
 
 std::string	ft_replace(std::string temp, size_t pos, size_t len, std::string s2)
-{
+{	
 	temp.erase(pos, len);
 	temp.insert(pos, s2);
 	return (temp);
@@ -38,8 +38,11 @@ int	sed_for_losers(char **av)
 	{
 		temp_stream << inputfile.rdbuf();
 		temp = temp_stream.str();
-		while (temp.find(s1) != temp.npos)
-			temp = ft_replace(temp, temp.find(s1), s1.length(), s2);
+		if (s1.compare(s2) != 0)
+		{
+			while (temp.find(s1) != temp.npos)
+				temp = ft_replace(temp, temp.find(s1), s1.length(), s2);
+		}
 		inputfile.close();
 	}
 	else 
