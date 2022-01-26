@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:07:51 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/17 18:23:12 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/26 14:01:11 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define FIXED_H
 # include <iostream>
 # include <iomanip>
+# include <cmath>
 
 class	Fixed {
 	private :
