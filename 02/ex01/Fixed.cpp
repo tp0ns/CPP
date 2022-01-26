@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:07:54 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/26 14:01:54 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/26 14:15:58 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed( const	int num ) {
 
 Fixed::Fixed( const float num) {
 	std::cout<< "Float constructor called"<<std::endl;
-	this->_rawBits = ((int)roundf(num * (1 << _fracBits))); 
+	this->_rawBits = ((int)roundf(num * (1 << this->_fracBits))); 
 	return ;
 }
 
