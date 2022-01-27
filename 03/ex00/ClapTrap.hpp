@@ -10,9 +10,9 @@ class ClapTrap {
 		int			_hitp;
 		int			_energyp;
 		int			_damage;
-		ClapTrap();
 
 	public:
+		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( ClapTrap const & src );
 		~ClapTrap();
