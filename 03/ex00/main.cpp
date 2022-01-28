@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:42:39 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/27 18:49:12 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/28 15:38:03 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main( void ) {
 	ClapTrap clappy("Clappy");
 
     std::cout<<std::endl;
-	clappy.takeDamage(2);
+	clappy.takeDamage(20);
 	clappy.attack("Dwight Schrute");
     std::cout<<std::endl;
 	

@@ -5,19 +5,19 @@
 */
 
 ClapTrap::ClapTrap() : _name("Default"), _hitp(10), _energyp(10), _damage(0) {
-	std::cout<< this->_name + " spawned." <<std::endl;
+	std::cout<< "ClapTrap default constructor called." <<std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( std::string name) : _name(name), _hitp(10), _energyp(10), _damage(0) {
-	std::cout<< this->_name + " spawned." <<std::endl;
+	std::cout<< "ClapTrap name constructor called." <<std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
 	*this = src;
-	std::cout<< this->_name + " spawned using copy" <<std::endl;
+	std::cout<< "ClapTrap copy constructor called." <<std::endl;
 	return ;
 }
 
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << this->_name + " destroyed itself..." <<std::endl;
+	std::cout << "ClapTrap default destructor called." <<std::endl;
 	return ;
 }
 
@@ -51,23 +51,24 @@ std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 }
 
 /*
-** ------------------------------ OTHER FUNCTIONS -----------------------------
+** --------------------------------- METHODS ----------------------------------
 */
 
 void			ClapTrap::attack(const std::string& target) {
 	if (this->_hitp <= 0)
 		std::cout<< this->_name + " is dead... LEAVE HIM ALONE ALREADY !" <<std::endl;
-	else if (this->_energyp <= 0)
-	{
+	else if (this->_energyp <= 0) {
 		std::cout<< this->_name + " don't have enough energy to attack !"<<std::endl;
-		return ;
 	}
-	std::cout<<	"Claptrap " + this->_name
+	else {
+		std::cout<<	"Claptrap " + this->_name
 			 <<	" attacks " + target
 			 <<	" causing " << this->_damage
 			 << " points of damage !"
 			 <<std::endl;
-	this->_energyp--;
+		this->_energyp--;
+	}
+	return ;
 }
 
 void			ClapTrap::takeDamage(unsigned int amount) {
@@ -104,6 +105,10 @@ void			ClapTrap::beRepaired(unsigned int amount) {
 	}
 	return ;
 }
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
 
 std::string const&	ClapTrap::getName() const {
 	return (this->_name);
