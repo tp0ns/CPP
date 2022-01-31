@@ -6,7 +6,7 @@
 /*   By: tpons <tpons@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:42:39 by tpons             #+#    #+#             */
-/*   Updated: 2022/01/31 18:23:14 by tpons            ###   ########.fr       */
+/*   Updated: 2022/01/31 18:26:05 by tpons            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main( void ) {
 		DiamondTrap scopy(scavy);
 
 	    std::cout<<std::endl;
-		scopy.setName("Fropy");
+		scopy.setName("Dopy");
 		scopy.setDamage(5);
 		scopy.attack("Michael Scott");
 	    std::cout<<std::endl;
