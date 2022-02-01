@@ -22,8 +22,8 @@ DiamondTrap::DiamondTrap( std::string name ) : _name(name) {
 	return ;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap( src )
-{
+DiamondTrap::DiamondTrap( const DiamondTrap & src ) {
+	*this = src;
 	std::cout<< "DiamondTrap copy constructor called." <<std::endl;
 	return ;
 }
@@ -56,7 +56,7 @@ void					DiamondTrap::attack( std::string const & target ) {
 }
 
 void					DiamondTrap::whoAmI( void ) const {
-	std::cout<<	"My ClapTrap name is:" << this->ClapTrap::_name
+	std::cout<<	"My ClapTrap name is : " << this->ClapTrap::_name
 			<<	" and my DiamondTrap name is " + this->_name <<std::endl;
 }
 

@@ -35,7 +35,7 @@ cflags.release		:= -Wall -Werror -Wextra
 cflags.valgrind		:= -Wall -Werror -Wextra -DDEBUG -ggdb
 cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -ggdb -fsanitize=address -fno-omit-frame-pointer
 CFLAGS				:= $(cflags.$(BUILD))
-CPPFLAGS			:= $(cflags.$(BUILD)) -std=c++98
+CPPFLAGS			:= $(cflags.$(BUILD)) -std=c++98 -Wshadow -Wno-shadow
 
 lib.release			:= 
 lib.valgrind		:= $(lib.release)
