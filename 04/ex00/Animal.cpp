@@ -4,12 +4,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+Animal::Animal() : type("Animal")
 {
+	std::cout<< "Animal default constructor called" <<std::endl;
+	return ;
 }
 
-Animal::Animal( const Animal & src )
+Animal::Animal( const Animal & src ) 
 {
+	std::cout<< "Animal copy constructor called" <<std::endl;
+	*this = src;
+	return ;
 }
 
 
@@ -19,6 +24,8 @@ Animal::Animal( const Animal & src )
 
 Animal::~Animal()
 {
+	std::cout<< "Animal destructor called" <<std::endl;
+	return ;
 }
 
 
@@ -28,17 +35,17 @@ Animal::~Animal()
 
 Animal &				Animal::operator=( Animal const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
+	if ( this != &rhs )
+	{
+		this->type = rhs.getType();
+	}
+	return ( *this );
 }
 
 std::ostream &			operator<<( std::ostream & o, Animal const & i )
 {
-	//o << "Value = " << i.getValue();
-	return o;
+	o << "Type = " << i.getType();
+	return ( o );
 }
 
 
@@ -46,10 +53,17 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	Animal::makeSound( void ) const {
+	std::cout<< "Makes weird animal sound" <<std::endl;
+	return ;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+const std::string&		Animal::getType( void ) const {
+	return (this->type);
+}
 
 /* ************************************************************************** */

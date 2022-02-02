@@ -1,19 +1,19 @@
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+WrongCat::WrongCat()
 {
-	this->type = "Cat";
-	std::cout<< "Cat default constructor called" <<std::endl;
+	this->type = "WrongCat";
+	std::cout<< "WrongCat default constructor called" <<std::endl;
 	return ;
 }
 
-Cat::Cat( const Cat & src )
+WrongCat::WrongCat( const WrongCat & src )
 {
-	std::cout<< "Cat copy constructor called" <<std::endl;
+	std::cout<< "WrongCat copy constructor called" <<std::endl;
 	*this = src;
 	return ;
 }
@@ -22,9 +22,9 @@ Cat::Cat( const Cat & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout<< "Cat default destructor called" <<std::endl;
+	std::cout<< "WrongCat default destructor called" <<std::endl;
 	return ;
 }
 
@@ -32,7 +32,7 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const & rhs )
+WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -41,7 +41,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 	return ( *this );
 }
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
+std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 {
 	o << "Type = " << i.getType();
 	return ( o );
@@ -51,8 +51,8 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Cat::makeSound( void ) const {
-	std::cout<< "*Cat noises* Meow meow meow" <<std::endl;
+void	WrongCat::makeSound( void ) const {
+	std::cout<< "*WrongCat noises* OUAF OUAF OUUUUUAAAAF" <<std::endl;
 	return ;
 }
 

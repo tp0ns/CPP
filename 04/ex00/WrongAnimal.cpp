@@ -1,38 +1,39 @@
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
-	this->type = "Cat";
-	std::cout<< "Cat default constructor called" <<std::endl;
+	std::cout<< "WrongAnimal default constructor called" <<std::endl;
 	return ;
 }
 
-Cat::Cat( const Cat & src )
+WrongAnimal::WrongAnimal( const WrongAnimal & src ) 
 {
-	std::cout<< "Cat copy constructor called" <<std::endl;
+	std::cout<< "WrongAnimal copy constructor called" <<std::endl;
 	*this = src;
 	return ;
 }
+
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout<< "Cat default destructor called" <<std::endl;
+	std::cout<< "WrongAnimal destructor called" <<std::endl;
 	return ;
 }
+
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const & rhs )
+WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -41,18 +42,19 @@ Cat &				Cat::operator=( Cat const & rhs )
 	return ( *this );
 }
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
+std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
 {
 	o << "Type = " << i.getType();
 	return ( o );
 }
 
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Cat::makeSound( void ) const {
-	std::cout<< "*Cat noises* Meow meow meow" <<std::endl;
+void	WrongAnimal::makeSound( void ) const {
+	std::cout<< "bzzz bzzz i am an wrong animal" <<std::endl;
 	return ;
 }
 
@@ -60,5 +62,8 @@ void	Cat::makeSound( void ) const {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+const std::string&		WrongAnimal::getType( void ) const {
+	return (this->type);
+}
 
 /* ************************************************************************** */
