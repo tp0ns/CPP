@@ -8,19 +8,22 @@
 
 class Character : public ICharacter
 {
-
 	public:
-
-		Character();
+		Character( std::string name );
 		Character( Character const & src );
 		~Character();
 
 		Character &		operator=( Character const & rhs );
 
-	private:
-		AMateria inventory[4];
-};
+		std::string const &	getName( void ) const;
+		void 				equip(AMateria *m);
+		void 				unequip(int idx);
+		void 				use(int idx, ICharacter &target);
 
-std::ostream &			operator<<( std::ostream & o, Character const & i );
+	private:
+		Character();
+		std::string _name;
+		AMateria *inventory[4];
+};
 
 #endif /* ******************************************************* CHARACTER_H */
