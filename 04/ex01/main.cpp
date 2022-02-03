@@ -16,15 +16,17 @@ int main( void )
 		else
 			tab[i] = new Dog();
 	}
-	std::cout<< "First of animal tab is :" << *tab[0] <<std::endl;
-	std::cout<< "Last of animal tab is : " << *tab[pop - 1] <<std::endl;
-
-	std::cout<< "First 5 ideas of first animal in tab are : " <<std::endl;
-	for (int i = 5; i < 10; i++)
-		std::cout<< ((Cat *)tab[0])->getBrain()->getIdea(i) <<std::endl;
-	std::cout<< "First 5 ideas of last animal in tab are : " <<std::endl;
-	for (int i = 5; i < 10; i++)
-		std::cout<< ((Cat *)tab[pop - 1])->getBrain()->getIdea(i) <<std::endl;
+	Animal	copy(*tab[0]);
+	std::cout<<std::endl<<std::endl;
+	std::cout<< "First of animal tab is : " << *tab[0] <<std::endl;
+	std::cout<< "Copy of first animal in tab is : " << copy <<std::endl;
+	std::cout<<std::endl<<std::endl<<"CHANGING FIRST ANIMAL IN TAB TYPE..."<<std::endl;
+	std::cout<<std::endl<<std::endl;
+	delete tab[0];
+	tab[0] = new Dog();
+	std::cout<< "First of animal tab is : " << *tab[0] <<std::endl;
+	std::cout<< "Copy constructed animal is : " << copy <<std::endl;
+	std::cout<<std::endl<<std::endl;
 	for (int i = 0; i < pop; i++)
 		delete tab[i];
 	return (0);

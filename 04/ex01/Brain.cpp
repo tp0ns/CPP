@@ -8,18 +8,6 @@ Brain::Brain( void )
 {
 	std::srand(std::time(NULL));
 	std::cout<< "Brain default constructor called" <<std::endl;
-	std::string	smiley[] = {
-		"😭",
-		"😂",
-		"🥺",
-		"🤣",
-		"✨",
-		"🙏",
-		"😍",
-		"🥰",
-		"😊",
-	};
-
 	std::string	quotes[] = {
 		"I don't like desk lamps.",
 		"It doesn't matter what college you went to.",
@@ -42,16 +30,28 @@ Brain::Brain( void )
 		"The enemy destroyed the city.",
 		"This could change all of our lives."
 	};
+	std::string	smiley[] = {
+		"😭",
+		"😂",
+		"🥺",
+		"🤣",
+		"✨",
+		"🙏",
+		"😍",
+		"🥰",
+		"😊",
+	};
 
 	for (size_t i = 0; i < 100; i++)
 	{
-		this->ideas[i] = smiley[std::rand() % (sizeof(smiley) / sizeof(std::string))] + quotes[std::rand() % (sizeof(quotes) / sizeof(std::string))];
+		this->ideas[i] = quotes[std::rand() % (sizeof(quotes) / sizeof(std::string))] + smiley[std::rand() % (sizeof(smiley) / sizeof(std::string))];
 	}
 	return ;
 }
 
 Brain::Brain( const Brain & src )
 {
+	std::cout<< "Brain copy constructor called" <<std::endl;
 	*this = src;
 	return ;
 }

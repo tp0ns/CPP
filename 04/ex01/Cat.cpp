@@ -16,6 +16,7 @@ Cat::Cat( const Cat & src )
 {
 	std::cout<< "Cat copy constructor called" <<std::endl;
 	*this = src;
+	this->brain = new Brain(*src.getBrain());
 	return ;
 }
 
