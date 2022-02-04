@@ -20,7 +20,7 @@ class MateriaSource : public IMateriaSource
 		AMateria*	createMateria(std::string const & type);
 	
 	private:
-		AMateria *learned[4];
+		AMateria *_learned[4];
 };
 
 #endif /* *************************************************** MATERIASOURCE_H */

@@ -29,6 +29,14 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
+AMateria &				AMateria::operator=(AMateria const & rhs) {
+	if (this != &rhs)
+	{
+		this->_type = rhs.getType();
+	}
+	return ;
+}
+
 std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 {
 	o << "Type = " << i.getType();

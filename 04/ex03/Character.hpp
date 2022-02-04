@@ -16,6 +16,7 @@ class Character : public ICharacter
 		Character &		operator=( Character const & rhs );
 
 		std::string const &	getName( void ) const;
+		AMateria**			getInventory( void ) const;
 		void 				equip(AMateria *m);
 		void 				unequip(int idx);
 		void 				use(int idx, ICharacter &target);
@@ -23,7 +24,7 @@ class Character : public ICharacter
 	private:
 		Character();
 		std::string _name;
-		AMateria *inventory[4];
+		AMateria *_inventory[4];
 };
 
 #endif /* ******************************************************* CHARACTER_H */
