@@ -24,7 +24,8 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 
 MateriaSource::~MateriaSource()
 {
-	delete [] this->_learned;
+	for (int i = 0; i < 4; i++)
+		delete this->_learned[i];
 	return ;
 }
 
@@ -59,14 +60,20 @@ void		MateriaSource::learnMateria(AMateria* src) {
 	{
 		if (this->_learned[i] == NULL)
 		{
-			this->_learned[i]->_type = src->getType();
+			this->_learned[i] = src;
 			return ;
 		}
 	}
+	return ;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type) {
-
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_learned[i]->getType() == type)
+			return (this->_learned[i]->clone());
+	}
+	return (NULL);
 }
 
 

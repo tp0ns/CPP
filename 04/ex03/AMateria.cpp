@@ -15,6 +15,11 @@ AMateria::AMateria(std::string const & type) : _type(type)
 	return ;
 }
 
+AMateria::AMateria(AMateria const &src) {
+	*this = src;
+	return ;
+}
+
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
@@ -34,7 +39,7 @@ AMateria &				AMateria::operator=(AMateria const & rhs) {
 	{
 		this->_type = rhs.getType();
 	}
-	return ;
+	return (*this);
 }
 
 std::ostream &			operator<<( std::ostream & o, AMateria const & i )
@@ -49,7 +54,7 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 */
 
 void	AMateria::use(ICharacter& target) {
-	std::cout<< "AMateria::use function has been called" <<std::endl;
+	std::cout<< "AMateria::use function has been called on " + target.getName() <<std::endl;
 }
 
 

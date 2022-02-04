@@ -5,6 +5,7 @@
 # include <string>
 # include "ICharacter.hpp"
 
+class ICharacter;
 class AMateria
 {
 	protected:
@@ -12,6 +13,7 @@ class AMateria
 	
 	public:
 		AMateria();
+		AMateria( AMateria const &src);
 		AMateria(std::string const &type);
 		virtual ~AMateria();
 

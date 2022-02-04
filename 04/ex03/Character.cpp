@@ -25,7 +25,8 @@ Character::Character( const Character & src ) {
 */
 
 Character::~Character() {
-	delete [] this->_inventory;
+	for (int i = 0; i < 4; i++)
+		delete this->_inventory[i];
 	return ;
 }
 
@@ -37,14 +38,13 @@ Character::~Character() {
 Character &				Character::operator=( Character const & rhs ) {
 	if ( this != &rhs )
 	{
-		AMateria**	newInventory = rhs.getInventory();
 		this->_name = rhs.getName();
 		for (int i = 0; i < 4; i++)
 		{
 			if (this->_inventory[i] != NULL)
 				delete this->_inventory[i];
-			if (newInventory[i] != NULL)
-				this->_inventory[i] = newInventory[i]->clone();
+			if (rhs.getItem(i) != NULL)
+				this->_inventory[i] = rhs.getItem(i)->clone();
 			else
 				this->_inventory[i] = NULL;
 		}
@@ -69,14 +69,14 @@ void	Character::equip(AMateria *m) {
 }
 
 void	Character::unequip(int idx) {
-	if (this->_inventory[idx] != NULL && idx > 0 && idx < 4)
+	if (this->_inventory[idx] != NULL && idx >= 0 && idx < 4)
 		this->_inventory[idx] = NULL;
 	else
 		std::cout<< "Can't unequip an empty or inexisting _inventory slot." <<std::endl;
 }
 
 void	Character::use(int idx, ICharacter &target) {
-	if (this->_inventory[idx] != NULL && idx > 0 && idx < 4)
+	if (this->_inventory[idx] != NULL && idx >= 0 && idx < 4)
 		this->_inventory[idx]->use(target);
 	else
 		std::cout<< "You can't use an empty or inexisting _inventory slot." <<std::endl;
@@ -91,8 +91,11 @@ std::string const &	Character::getName( void ) const {
 	return (this->_name);
 }
 
-AMateria**	Character::getInventory( void ) const {
-	return (this->_inventory);
+AMateria*	Character::getItem( int i ) const {
+	if (i >= 0 && i < 4)
+		return (this->_inventory[i]);
+	else
+		return (NULL);
 }
 
 /* ************************************************************************** */
