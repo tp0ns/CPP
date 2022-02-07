@@ -4,12 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreation", 145, 137), _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137), _target("default")
 {
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form("ShrubberyCreation", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	return ;
 }

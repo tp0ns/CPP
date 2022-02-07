@@ -32,21 +32,21 @@ class Form
 		class GradeTooHighException : std::exception {
 			public :
 				virtual const char *what() const throw() {
-					return ("grade is too high.");
+					return ("grade is too high or invalid.");
 				}
 		};
 
 		class GradeTooLowException : std::exception {
 			public :
 				virtual const char *what() const throw() {
-					return ("grade is too low.");
+					return ("grade is too low or invalid.");
 				}	
 		};
 
 		class ExecDeniedException : std::exception {
 			public :
 				virtual const char *what() const throw() {
-					return ("grade is too low to execute or form isn't signed.");
+					return ("grade isn't valid for execution or form isn't signed.");
 				}
 		};
 

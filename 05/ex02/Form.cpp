@@ -86,14 +86,15 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 */
 
 void		Form::beSigned(Bureaucrat& signer) {
-	if (signer.getGrade() <= this->_signGrade)
+	if (signer.getGrade() <= this->_signGrade && signer.getGrade() > 0)
 		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();
 }
 
 void		Form::beExecuted(Bureaucrat const & executor) const {
-	if (executor.getGrade() <= this->_execGrade && this->_signed)
+	if (executor.getGrade() <= this->_execGrade && executor.getGrade() > 0
+		&& this->_signed)
 		return ;
 	else
 		throw Form::ExecDeniedException();
