@@ -84,10 +84,17 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 */
 
 void		Form::beSigned(Bureaucrat& signer) {
-	if (signer.getGrade() <= this->_signGrade)
-		this->_signed = true;
-	else
-		throw Form::GradeTooLowException();
+	try {
+		if (signer.getGrade() <= this->_signGrade)
+			this->_signed = true;
+		else
+			throw Form::GradeTooLowException();
+	}
+	catch (Form::GradeTooLowException& e) {
+		std::cout<< signer.getName() << " couldn't sign "
+		<< this->_name << " because your " << e.what() <<std::endl;
+		return ;
+	}
 }
 
 /*
