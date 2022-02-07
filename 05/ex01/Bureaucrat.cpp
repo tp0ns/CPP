@@ -81,16 +81,16 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void			Bureaucrat::signForm( Form& toSign ) {
+void			Bureaucrat::signForm( Form& form ) {
 	try{
-		toSign.beSigned(*this);
+		form.beSigned(*this);
 	}
 	catch (Form::GradeTooLowException& e) {
 		std::cout<< this->_name << " couldn't sign "
-		<< toSign.getName() << " because your " << e.what() <<std::endl;
+		<< form.getName() << " because your " << e.what() <<std::endl;
 		return ;
 	}
-	std::cout<< this->_name << " signed " << toSign.getName() <<std::endl;
+	std::cout<< this->_name << " signed " << form.getName() <<std::endl;
 	return ;
 }
 

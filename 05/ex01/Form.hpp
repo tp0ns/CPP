@@ -25,7 +25,7 @@ class Form
 
 		Form &		operator=( Form const & rhs );
 
-		void		beSigned(Bureaucrat& worker);
+		void		beSigned(Bureaucrat& signer);
 
 		class GradeTooHighException : std::exception {
 			public :

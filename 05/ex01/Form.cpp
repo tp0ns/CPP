@@ -83,8 +83,8 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void		Form::beSigned(Bureaucrat& worker) {
-	if (worker.getGrade() <= this->_signGrade)
+void		Form::beSigned(Bureaucrat& signer) {
+	if (signer.getGrade() <= this->_signGrade)
 		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();
