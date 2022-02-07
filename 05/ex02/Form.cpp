@@ -86,18 +86,32 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 */
 
 void		Form::beSigned(Bureaucrat& signer) {
-	if (signer.getGrade() <= this->_signGrade && signer.getGrade() > 0)
-		this->_signed = true;
-	else
-		throw Form::GradeTooLowException();
+	try {
+		if (signer.getGrade() <= this->_signGrade)
+			this->_signed = true;
+		else
+			throw Form::GradeTooLowException();
+	}
+	catch (Form::GradeTooLowException& e) {
+		std::cout<< signer.getName() << " couldn't sign "
+		<< this->_name << " because your " << e.what() <<std::endl;
+		return ;
+	}
 }
 
 void		Form::beExecuted(Bureaucrat const & executor) const {
-	if (executor.getGrade() <= this->_execGrade && executor.getGrade() > 0
-		&& this->_signed)
+	try {
+		if (executor.getGrade() <= this->_execGrade && executor.getGrade() > 0
+			&& this->_signed)
+			return ;
+		else
+			throw Form::ExecDeniedException();
+	}
+	catch (Form::ExecDeniedException& e) {
+		std::cout<< executor.getName() << " couldn't execute "
+		<< this->_name << " because your " << e.what() <<std::endl;
 		return ;
-	else
-		throw Form::ExecDeniedException();
+	}
 }
 
 /*
