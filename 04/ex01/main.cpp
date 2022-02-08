@@ -22,6 +22,7 @@ int main( void )
 	std::cout<<std::endl<<std::endl;
 	delete tab[0];
 	tab[0] = new Dog();
+	std::cout<<std::endl<<std::endl;
 	std::cout<< "First of animal tab is : " << *tab[0] <<std::endl;
 	std::cout<< "Copy constructed animal is : " << copy <<std::endl;
 	std::cout<<std::endl<<std::endl;
