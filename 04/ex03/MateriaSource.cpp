@@ -70,7 +70,7 @@ void		MateriaSource::learnMateria(AMateria* src) {
 AMateria*	MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_learned[i]->getType() == type)
+		if (this->_learned[i] != NULL && this->_learned[i]->getType() == type)
 			return (this->_learned[i]->clone());
 	}
 	return (NULL);

@@ -25,6 +25,7 @@ class Character : public ICharacter
 		Character();
 		std::string _name;
 		AMateria *_inventory[4];
+		AMateria *_floor[8];
 };
 
 #endif /* ******************************************************* CHARACTER_H */
