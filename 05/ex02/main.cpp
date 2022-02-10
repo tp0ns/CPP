@@ -14,14 +14,9 @@ int main( void ) {
 		
 		Bureaucrat robot("Robot", 25);
 		RobotomyRequestForm		tomy("Cat");
-		RobotomyRequestForm		jerr("Mouse");
 
 		robot.signForm(&tomy);
-		robot.signForm(&jerr);
 		robot.executeForm(tomy);
-		robot.executeForm(tomy);
-		robot.executeForm(jerr);
-		robot.executeForm(jerr);
 
 		Bureaucrat president("Zaphod Beeblebrox", 1);
 		PresidentialPardonForm	pardon("Patoche");
