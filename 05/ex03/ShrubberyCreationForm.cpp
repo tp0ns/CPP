@@ -60,14 +60,7 @@ std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 */
 
 void		ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
-	try{
-		this->beExecuted(executor);
-	}
-	catch (Form::ExecDeniedException& e) {
-		std::cout<< executor.getName() << " couldn't execute "
-		<< this->getName() << " because your " << e.what() <<std::endl;
-		return ;
-	}
+	(void)executor;
 	std::string		out_filename(this->_target + "_shrubbery");	
 	std::ofstream	output(out_filename.c_str());
 	if (!output.is_open())

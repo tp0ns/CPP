@@ -2,14 +2,27 @@
 #include "Bureaucrat.hpp"
 
 int main( void ) {
-	Form caf("APL", 1, 40);
-	Bureaucrat you("You", 42);
+    try {
+	    Form caf("APL", 42, 42);
+	    Bureaucrat you("You", 21);
 
-	std::cout<< caf <<std::endl;
+	    std::cout<< caf <<std::endl<<std::endl;
 
-	// caf.beSigned(you);
-	you.signForm(caf);
+        you.signForm(&caf);
 
-	std::cout<< caf <<std::endl;
-	return (0);
+	    std::cout<<std::endl<< caf <<std::endl;
+    }
+    catch (Form::GradeTooHighException& e) {
+        std::cerr<< "Form " << e.what() <<std::endl;
+    }
+    catch (Form::GradeTooLowException& e) {
+        std::cerr<< "Form " << e.what() <<std::endl;
+    }
+    catch (Bureaucrat::GradeTooHighException& e) {
+        std::cerr<< "Bureaucrat " << e.what() <<std::endl;
+    }
+    catch (Bureaucrat::GradeTooLowException& e) {
+        std::cerr<< "Bureaucrat " << e.what() <<std::endl;
+    }
+    return  (0);
 }

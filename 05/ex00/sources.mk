@@ -3,7 +3,7 @@
 ## . ##
 
 SOURCES		+=           		\
-		Bureaucrat.cpp      	\
 		main.cpp            	\
+		Bureaucrat.cpp      	\
 
 

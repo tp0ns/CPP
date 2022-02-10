@@ -60,21 +60,13 @@ std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 */
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-	try{
-		this->beExecuted(executor);
-	}
-	catch (Form::ExecDeniedException& e) {
-		std::cout<< executor.getName() << " couldn't execute "
-		<< this->getName() << " because your " << e.what() <<std::endl;
-		return ;
-	}
+	(void)executor;
 	std::cout<< "Drrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" <<std::endl;
 	std::srand(std::time(NULL));
 	if ((std::rand() % 2) == 1)
 		std::cout << this->_target << " has failed robotomization!" << std::endl;
 	else
 		std::cout << "It worked ! " << this->_target << " is a robot from now on !" << std::endl;
-	return ;
 }
 
 /*

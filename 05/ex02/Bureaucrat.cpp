@@ -10,39 +10,21 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name), _grade(grade) {
-	try {
-		if (this->_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (this->_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-			return ;
-	}
-	catch (Bureaucrat::GradeTooHighException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	return ;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src )
 {
 	*this = src;
-	try {
-		if (this->_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (this->_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-			return ;
-	}
-	catch (Bureaucrat::GradeTooHighException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	return ;
 }
 
 
@@ -72,7 +54,7 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 {
-	o << i.getName() << ", bureaucrat grade " << i.getGrade() << "." <<std::endl;
+	o << i.getName() << ", bureaucrat grade " << i.getGrade() << ".";
 	return o;
 }
 
@@ -81,67 +63,51 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void			Bureaucrat::signForm( Form& form ) {
-	try{
-		form.beSigned(*this);
+void			Bureaucrat::signForm( Form* form ) {
+	if (form != NULL)
+	{
+		try{
+			form->beSigned(this);
+			std::cout<< this->_name << " signed " << form->getName() <<std::endl;
+		}
+		catch (Form::GradeTooLowException& e) {
+			std::cout<< this->_name << " couldn't sign "
+			<< form->getName() << " because your " << e.what() <<std::endl;
+		}
 	}
-	catch (Form::GradeTooLowException& e) {
-		std::cout<< this->_name << " couldn't sign "
-		<< form.getName() << " because your " << e.what() <<std::endl;
-		return ;
-	}
-	std::cout<< this->_name << " signed " << form.getName() <<std::endl;
-	return ;
+	else
+		std::cout<< "Form is NULL" <<std::endl;
 }
 
 void			Bureaucrat::executeForm( Form const & form ) {
 	try{
 		form.beExecuted(*this);
+		std::cout<< this->_name << " executed " << form.getName() <<std::endl;
 	}
 	catch (Form::ExecDeniedException& e) {
 		std::cout<< this->_name << " couldn't execute "
 		<< form.getName() << " because your " << e.what() <<std::endl;
-		return ;
 	}
-	form.execute(*this);
-	std::cout<< this->_name << " executed " << form.getName() <<std::endl;
-	return ;
 }
 
 void			Bureaucrat::incGrade( void ) {
-	try {
+	if (this->_grade - 1 < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade - 1 > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
 		this->_grade--;
-		if (this->_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (this->_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-			return ;
-	}
-	catch (Bureaucrat::GradeTooHighException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
+	return ;
 }
 
 void			Bureaucrat::decGrade( void ) {
-	try {
+	if (this->_grade + 1 < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade + 1 > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
 		this->_grade++;
-		if (this->_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (this->_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-			return ;
-	}
-	catch (Bureaucrat::GradeTooHighException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException& e) {
-		std::cerr << this->_name << " " << e.what() << std::endl;
-	}
+	return ;
 }
 
 /*

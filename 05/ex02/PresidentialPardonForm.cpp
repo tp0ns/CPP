@@ -57,14 +57,6 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 */
 
 void		PresidentialPardonForm::execute(Bureaucrat const & executor) const {
-	try{
-		this->beExecuted(executor);
-	}
-	catch (Form::ExecDeniedException& e) {
-		std::cout<< executor.getName() << " couldn't execute "
-		<< this->getName() << " because your " << e.what() <<std::endl;
-		return ;
-	}
 	std::cout<< this->_target << " has received a presidential pardon from " << executor.getName() <<"."<<std::endl;
 }
 

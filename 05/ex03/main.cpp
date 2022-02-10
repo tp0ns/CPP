@@ -5,16 +5,33 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
-int	main( void ) {
-	Intern someRandomIntern;
-	Form* rrf;
-	rrf = someRandomIntern.makeForm("asd", "Bender");
-	delete rrf;
-	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-	delete rrf;
-	rrf = someRandomIntern.makeForm("schrubbery creation", "Bender");
-	delete rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	delete rrf;
+int main( void ) {
+	try {
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("asd", "Bender");
+		delete rrf;
+		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		delete rrf;
+		rrf = someRandomIntern.makeForm("schrubbery creation", "Bender");
+		delete rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		delete rrf;
+	}
+	catch (Form::ExecDeniedException& e) {
+		std::cerr<< "Form: " << e.what() <<std::endl;
+	}
+	catch (Form::GradeTooHighException& e) { 
+		std::cerr<< "Form: " << e.what() <<std::endl;
+	}
+	catch (Form::GradeTooLowException& e) {
+		std::cerr<< "Form: " << e.what() <<std::endl;
+	}
+	catch (Bureaucrat::GradeTooHighException& e) {
+		std::cerr<< "Bureaucrat: " << e.what() <<std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException& e) {
+		std::cerr<< "Bureaucrat: " << e.what() <<std::endl;
+	}
 	return (0);
 }

@@ -3,8 +3,8 @@
 ## . ##
 
 SOURCES		+=           		\
-		Form.cpp            	\
-		Bureaucrat.cpp      	\
 		main.cpp            	\
+		Bureaucrat.cpp      	\
+		Form.cpp            	\
 
 
