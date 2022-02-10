@@ -46,7 +46,6 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
 		this->_grade = rhs.getGrade();
 	}
 	return *this;

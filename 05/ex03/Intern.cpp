@@ -70,10 +70,9 @@ Form*					Intern::makeForm(std::string name, std::string target) const {
 		}
 		default:
 		{
-			std::cout<< "This intern tried to create an unexisting Form, back to the cofee machine" <<std::endl;
+			throw Intern::InvalidFormName();
 		}
 	}
-	return (NULL);
 }
 
 /* ************************************************************************** */

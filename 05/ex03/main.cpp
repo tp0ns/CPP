@@ -9,14 +9,17 @@ int main( void ) {
 	try {
 		Intern someRandomIntern;
 		Form* rrf;
-		rrf = someRandomIntern.makeForm("asd", "Bender");
-		delete rrf;
+		// rrf = someRandomIntern.makeForm("asd", "Bender");
+		// delete rrf;
 		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 		delete rrf;
 		rrf = someRandomIntern.makeForm("schrubbery creation", "Bender");
 		delete rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		delete rrf;
+	}
+	catch (Intern::InvalidFormName& e) {
+		std::cerr<< "Intern: " << e.what() <<std::endl;
 	}
 	catch (Form::ExecDeniedException& e) {
 		std::cerr<< "Form: " << e.what() <<std::endl;

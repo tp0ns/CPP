@@ -46,7 +46,6 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
 		this->_grade = rhs.getGrade();
 	}
 	return *this;
@@ -77,18 +76,6 @@ void			Bureaucrat::signForm( Form* form ) {
 	}
 	else
 		std::cout<< "Form is NULL" <<std::endl;
-}
-
-void			Bureaucrat::executeForm( Form const & form ) {
-	try{
-		form.beExecuted(*this);
-		form.execute(*this);
-		std::cout<< this->_name << " executed " << form.getName() <<std::endl;
-	}
-	catch (Form::ExecDeniedException& e) {
-		std::cout<< this->_name << " couldn't execute "
-		<< form.getName() << " because your " << e.what() <<std::endl;
-	}
 }
 
 void			Bureaucrat::incGrade( void ) {
