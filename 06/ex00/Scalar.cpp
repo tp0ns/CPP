@@ -43,14 +43,14 @@ Scalar &				Scalar::operator=( Scalar const & rhs )
 std::ostream &			operator<<( std::ostream & o, Scalar const & i )
 {
 	o << "char: ";
-	if ((i.getFlag() & ICHAR) == ICHAR)
+	if (i.getFlag() & ICHAR)
 		o << "impossible" <<std::endl;
-	else if ((i.getFlag() & NDCHAR) == NDCHAR)
+	else if (i.getFlag() & NDCHAR)
 		o << "Non displayable" <<std::endl;
 	else
 		o << "'" << i.getC() << "'" <<std::endl;
 	o << "int: ";
-	if ((i.getFlag() & IINT) == IINT)
+	if (i.getFlag() & IINT)
 		o << "impossible" <<std::endl;
 	else
 		o << i.getI() <<std::endl;
