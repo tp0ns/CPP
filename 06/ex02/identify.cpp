@@ -32,21 +32,21 @@ try
 		A a = dynamic_cast<A &>(p);
 		std::cout << "This Base reference refer to an A type !" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::bad_cast& e)
 	{
 		try
 		{
 			B b = dynamic_cast<B &>(p);
 			std::cout << "This Base reference refer to a B type !" << std::endl;
 		}
-		catch(const std::exception& e)
+		catch(const std::bad_cast& e)
 		{
 			try
 			{
 				C c = dynamic_cast<C &>(p);
 				std::cout << "This Base reference refer to a C type !" << std::endl;
 			}
-			catch(const std::exception& e)
+			catch(const std::bad_cast& e)
 			{
 				std::cout << "You shouldn't be reading this....." << std::endl;
 			}
