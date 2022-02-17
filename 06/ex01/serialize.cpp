@@ -9,7 +9,6 @@ Data*		deserialize(uintptr_t raw) {
 }
 
 std::ostream	&operator<<(std::ostream &o, const Data &src) {
-	o	<< "nb : " << src.i << std::endl;
-	o	<< "c : " << src.c << std::endl;
+	o	<< "nb : " << src.i << std::endl << "c : " << src.c;
 	return (o);
 }

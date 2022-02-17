@@ -1,17 +1,15 @@
 #include "serialize.hpp"
 
 int	main (void) {
-	Data meta =  {42, '*'};
-	std::cout<< "Initial address: " << &meta <<std::endl;
-	std::cout<< "Initial value: " << std::endl  << meta <<std::endl;
+	Data initial =  {42, '*'};
+	std::cout<< "Initial value: " << std::endl  << initial <<std::endl;
 
-	uintptr_t serialized = serialize(&meta);
+	uintptr_t serialized = serialize(&initial);
 
-	std::cout<< "Serialized: " << serialized <<std::endl<<std::endl;
+	std::cout<<std::endl<< "Serialized value: " << serialized <<std::endl<<std::endl;
 
-	Data deserialized = *deserialize(serialized);
+	Data *deserialized = deserialize(serialized);
 
-	std::cout<< "Deserialized address: " << &deserialized <<std::endl;
-	std::cout<< "Deserialized value: " << std::endl << deserialized <<std::endl;
+	std::cout<< "Deserialized value: " << std::endl << *deserialized <<std::endl;
 	return (0);
 }
