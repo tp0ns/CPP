@@ -3,7 +3,6 @@
 ## . ##
 
 SOURCES		+=           		\
-		Scalar.cpp          	\
 		main.cpp            	\
 
 
