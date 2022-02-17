@@ -18,11 +18,11 @@ Base*	generate( void ) {
 }
 
 void	identify( Base* p ) {
-	if (dynamic_cast<A *>(p) != NULL)
+	if (dynamic_cast<A *>(p))
 		std::cout << "This Base pointer points to an A type !" << std::endl;
-	else if (dynamic_cast<B *>(p) != NULL)
+	else if (dynamic_cast<B *>(p))
 		std::cout << "This Base pointer points to a B type !" << std::endl;
-	else if (dynamic_cast<C *>(p) != NULL)
+	else if (dynamic_cast<C *>(p))
 		std::cout << "This Base pointer points to a C type !" << std::endl;
 }
 
@@ -37,14 +37,14 @@ try
 		try
 		{
 			B b = dynamic_cast<B &>(p);
-			std::cout << "This Base reference refer to an B type !" << std::endl;
+			std::cout << "This Base reference refer to a B type !" << std::endl;
 		}
 		catch(const std::exception& e)
 		{
 			try
 			{
 				C c = dynamic_cast<C &>(p);
-				std::cout << "This Base reference refer to an C type !" << std::endl;
+				std::cout << "This Base reference refer to a C type !" << std::endl;
 			}
 			catch(const std::exception& e)
 			{
