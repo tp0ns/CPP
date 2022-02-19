@@ -38,10 +38,4 @@ class Array
 		unsigned int	_size;
 };
 
-template <typename T>
-std::ostream &			operator<<( std::ostream & o, Array< T > const & i ) {
-	for (unsigned int n = 0; n < i.size(); n++)
-		o << i[n] <<std::endl;
-};
-
 #endif /* *********************************************************** ARRAY_H */
