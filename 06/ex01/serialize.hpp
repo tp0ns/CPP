@@ -4,6 +4,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <stdint.h>
 
 typedef struct s_data {
 	int	i;

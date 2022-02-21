@@ -4,6 +4,7 @@
 # include <iomanip>
 # include <string>
 # include <cstdlib>
+# include <typeinfo>
 
 class Base { public : virtual ~Base() {}; };
 class A : public Base {};
