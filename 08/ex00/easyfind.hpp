@@ -4,16 +4,19 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <algorithm>
+# include <vector>
+# include <list>
 
 template<typename T>
-int		easyfind(T haystack, int needle) throw() {
-	T::iterator i;
+int		easyfind(T haystack, int needle) throw(std::exception) {
+	typename T::iterator it;
 
-	i = std::find(haystack.begin(), haystack.end(), needle);
-	if (i == haystack.end())
+	it = std::find(haystack.begin(), haystack.end(), needle);
+	if (it == haystack.end())
 		throw std::exception();
 	else
-		return (*i);
+		return (*it);
 };
 
 #endif
