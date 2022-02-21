@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <string>
+# include <stdlib.h>
+# include <time.h>
 
 template <typename T>
 class Array
