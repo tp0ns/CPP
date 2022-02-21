@@ -36,31 +36,11 @@ void	testChar( void ) {
 	}
 }
 
-void	testFloat( void ) {
-	Array<float> f(MAX_VAL);
-	std::cout<< f.size() <<std::endl;
-	srand(time(NULL));
-	for (int i = 0; i < MAX_VAL; i++)
-	{
-		const int value = rand();
-		f[i] = value;
-		std::cout<<std::fixed<< f[i] <<std::endl;
-	}
-	try {
-		f[-2] = 0;
-	}
-	catch(const std::exception& e) {
-		std::cerr << "Invalid index" << '\n';
-	}
-}
-
 int main(int, char**)
 {
 	testInt();
 	std::cout<<std::endl;
 	testChar();
-	std::cout<<std::endl;
-	testFloat();
 	std::cout<<std::endl;
 	return 0;
 }
