@@ -9,8 +9,8 @@ int main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout<< "Shortest span : " << sp.shortestSpan() << std::endl;
+		std::cout<< "Longest span : " << sp.longestSpan() << std::endl;
 
 		/* ADD OF NEW NUMBERS WITH ITERATORS */
 		std::vector<int> vct(4, 42);
@@ -20,8 +20,8 @@ int main()
 		spb.addNumber(it, itb);
 		spb.addNumber(0);
 		std::cout<< std::endl;
-		std::cout << spb.shortestSpan() << std::endl;
-		std::cout << spb.longestSpan() << std::endl;
+		std::cout<< "Shortest span : " << spb.shortestSpan() << std::endl;
+		std::cout<< "Longest span : " << spb.longestSpan() << std::endl;
 	}
 	catch (Span::OutOfStorage& e) {
 		std::cerr<< e.what() <<std::endl;
